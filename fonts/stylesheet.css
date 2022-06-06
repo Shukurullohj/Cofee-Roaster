@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Fraunces 72pt';
+    src: url('Fraunces72pt-Black.woff2') format('woff2'),
+        url('Fraunces72pt-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fraunces 48pt';
+    src: url('Fraunces48pt-Black.woff2') format('woff2'),
+        url('Fraunces48pt-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fraunces 28pt';
+    src: url('Fraunces28pt-Black.woff2') format('woff2'),
+        url('Fraunces28pt-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fraunces';
+    src: url('Fraunces-Black.woff2') format('woff2'),
+        url('Fraunces-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
