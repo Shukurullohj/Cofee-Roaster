@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cofee Roaster</title>
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <style>
+        
+        
+
+
+        
+
+        .option-wrapper--open {
+            display: block;
+        }
+        .option__input {
+            appearance: none;
+        }
+        .option {
+            margin: 0;
+        }
+        .option__content {
+        background-color: var(--color-light);
+        padding: 32px 28px 84px;
+        border-radius: 8px;
+        } a
+
+        .option__name {
+        font-size: 24px;
+        margin: 0;
+        margin-bottom: 24px;
+        }
+
+        .option__text {
+        font-size: 16px;
+        }
+
+        .option__content:hover {
+        background-color: var(--color-pale-orange);
+        }
+
+        .option--active {
+        background-color: var(--color-dark-cyan);
+        color: var(--color-light);
+        }
+        .checkbox__input {
+            position: absolute;
+            appearance: none;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+            opacity: 1;
+        }
+        .option__input:checked ~ .option__content {
+            background-color: var(--color-dark-cyan);
+        }
+        .select {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 32px;
+            font-weight: 900;
+            font-family: "Fraunces", "Arial", sans-serif;
+            color: var(--color-light-gray);
+            margin-bottom: 40px;
+        }
+        @media screen and (min-width:768px) {
+            .option-wrapper {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+            }
+        }
+
+    </style>
+    <div class="select-wrapper container">
+        <span class="select">
+            <span class="select__text">How do you drink your coffee?</span>
+            <svg width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>
+        </span>
+        <div class="option-wrapper">
+            <label class="option">
+                <input class="option__input" type="checkbox">
+                <div class="option__content">
+                    <h4 class="option__name">Capsule</h4>
+                    <p class="option__text">Compatible with Nespresso systems and similar brewers</p>
+                </div>
+            </label>
+            <label class="option">
+                <input class="option__input" type="checkbox">
+                <div class="option__content">
+                    <h4 class="option__name">Filter</h4>
+                    <p class="option__text">For pour over or drip methods like Aeropress, Chemex, and V60
+                    </p>
+                </div>
+            </label>
+            <label class="option">
+                <input class="option__input" type="checkbox">
+                <div class="option__content">
+                    <h4 class="option__name">Expresso</h4>
+                    <p class="option__text">Compatible with Nespresso systems and similar brewers</p>
+                </div>
+            </label>
+        </div>
+    </div>
+    
+  <script src="js/main.js"></script>
+</body>
+</html>
