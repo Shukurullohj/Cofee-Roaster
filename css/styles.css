@@ -5,6 +5,9 @@
   --color-pale-orange: #fdd6ba;
   --color-gray:　#fdd6ba;
   --color-light: #f4f1eb;
+  --color-black: #333d4b;
+  --color-light-gray: #83888F;
+
 
   --color-btn-hover: #66d2cf;
   --color-btn-disabled: #e2dedb;
@@ -58,7 +61,7 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  background-color: #fff;
+  background-color: var(--color-light-bg);
   font-family: "Barlow", "Arial", sans-serif;
   font-size: 15px;
   font-weight: 400;
@@ -73,6 +76,7 @@ img {
 
 a {
   text-decoration: none;
+  color: var(--color-black);
 }
 
 p {
@@ -152,10 +156,211 @@ h1, h2, h3, h4 {
   color: var(--color-light);
 }
 
-@media screen and (min-width:768px) {
+/* NAV */
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+  flex-flow: wrap;
+}
+
+.nav__list {
+  flex-basis: 100%;
+  display: none;
+  list-style: none;
+  padding-top: 40px;
+}
+
+.nav__item {
+  text-align: center;
+}
+
+.nav__item:not(:last-child) {
+    margin-bottom: 32px;
+}
+
+.nav__link {
+    font-family: "Fraunces", "Arial", sans-serif;
+    font-weight: 900;
+}
+
+.nav__link:hover {
+  color: var(--color-black);
+}
+
+/* SITELOGO */
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  
+}
+
+.site-logo__text {
+  margin: 0;
+  font-size: 16px;
+}
+
+
+/* SHOWCASE */
+
+.banner {
+  position: relative;
+  background: url(./img/about-us-bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 500px;
+  padding: 24px;
+  overflow: hidden;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.banner:after {
+  content:'';
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100%;
+  height:100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.banner--plan {
+  background: url('./img/plan-bg.jpg') no-repeat center center fixed;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.banner--home {
+  background: url('../img/home-banner-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.banner--about .banner__title {
+  font-size: 28px;
+}
+
+.banner__content {
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 15px;
+  color: var(--color-light);
+  z-index: 2;
+}
+.banner__title {
+  margin: 0;
+  margin-bottom: 24px;
+  font-size: 40px;
+}
+
+
+.our-collection-text {
+  position: relative;
+  opacity: 0.5;
+  text-align: center;
+  font-size: 40px;
+  color: var(--color-dark-gray-blue);
+  margin-bottom: 13px;
+  z-index: -1;
+}
+
+.our-collection-text::after {
+  content: "";
+  position:absolute;
+  z-index:2;
+  right:0; bottom:-12px; left:0;
+  height:30px; /* adjust it to your needs */
+  background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+}
+
+.collection {
+  padding: 0 45px;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.collection:last-child {
+  margin-bottom: 120px;
+}
+
+.collection__icon {
+  width: 200px;
+  height: 150px;
+}
+
+.collection__name {
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+@media only screen and (min-width:768px) {
   .container {
-    margin-right: 40px;
+    padding-right: 40px;
     padding-left: 40px;
+  }
+
+  .nav__list {
+    display: flex;
+    flex-basis: auto;
+    padding: 0;
+  }
+
+  .nav__item:not(:last-child) {
+    margin-right: 33px;
+    margin-bottom: 0;
+  }
+
+  .nav__link {
+    font-family: "Barlow", "Arial", sans-serif;
+    color: #83888F;
+    font-size: 12px;
+  }
+
+  .nav__sidebar {
+    display: none;
+  }
+
+  .banner:after {
+    display: none;
+  }
+
+  .banner__content {
+      width: 50%;
+      align-items: start;
+      text-align: left;
+  }
+
+  .our-collection-text {
+    font-size: 80px;
+  }
+
+  .our-collection-text:after {
+    height: 40px;
+    bottom: -32px;
+  }
+
+  .collection-list {
+    position: relative;
+    top: -30px;
+    z-index: 2;
+  }
+
+  .collection {
+    display: flex;
+    align-items: center;
+    padding: 0 100px;
+  }
+
+  .collection__content {
+    text-align: left;
   }
 }
 
@@ -163,9 +368,32 @@ h1, h2, h3, h4 {
   body {
     font-size: 16px;
   }
-  
+
   .container {
-    margin-right: 40px;
-    margin-left: 40px;
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  .banner {
+    height: 600px;
+  }
+
+  .our-collection-text {
+    font-size: 115px;
+  }
+
+  .collection-list {
+    display: flex;
+    top: -15px;
+  }
+
+  .collection {
+    flex-direction: column;
+    padding: 0;
+    margin-right: 30px;
+  }
+
+  .collection__content {
+    text-align: center;
   }
 }
