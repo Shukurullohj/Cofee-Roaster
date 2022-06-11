@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cofee Roaster</title>
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <style>
+
+        .choose {
+            background-color: #2C343E;
+            padding: 64px 24px 28px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            color: var(--color-light);
+        }
+        .choose__title {
+            margin: 0;
+            margin-bottom: 24px;
+            font-size: 28px;
+        }
+
+        .card-choose-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            background-color: var(--color-black);
+            border-radius: 0 0 8px 8px;
+            height: 657px;
+        }
+
+
+        .card-choose-wrapper::before {
+            content: "";
+            position: absolute;
+            bottom: 50%;
+        }
+
+        .card-choose__list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card-choose__item {
+            background-color: var(--color-dark-cyan);
+            padding: 72px 33px 51px;
+            border-radius: 8px;
+            margin: 36px 24px;
+            text-align: center;
+            color: var(--color-light);
+        }
+
+        .card-choose__item:not(:last-child) {
+            margin-bottom: 24px;
+        }
+
+        .card-choose__img {
+            margin-bottom: 56px;
+            width: 71px;
+            height: 72px;
+        }
+
+        .card-choose__title {
+            margin: 0;
+            margin-bottom: 24px;
+            font-size: 24px;
+        }
+
+        @media screen and (min-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+
+            .choose {
+                background-color: var(--color-black);
+                padding: 56px 74px 70px 74px;
+            }
+
+            .choose__title {
+                font-size: 32px;
+            }
+
+
+            .card-choose-wrapper {
+                height: 350px;
+            }
+
+            .card-choose__item {
+                margin-top: 0;
+                display: flex;
+                align-items: center;
+                text-align: left;
+            }
+            .card-choose__img {
+                margin-right: 55px;
+                margin-bottom: 0;
+            }
+        }
+        @media screen and (min-width:992px) {
+            .card-choose-wrapper {
+                height: 260px;
+            }
+
+            .card-choose__list {
+                display: flex;
+            }
+
+            .card-choose__item {
+                display: block;
+                text-align: center;
+            }
+
+            .card-choose__img {
+                margin: 0;
+                margin-bottom: 56px;
+            }
+
+            
+        }
+    </style>
+    <div class="container"> 
+        <div class="choose">
+            <h3 class="choose__title">Why choose us?</h3>
+            <p class="choose__text">A large part of our role is choosing which particular coffees will be featured  in our range. This means working closely with the best coffee growers to give you a more impactful experience on every level.</p>
+        </div>
+        <div class="card-choose-wrapper">
+            <div class="card-choose">
+                <ul class="card-choose__list">
+                    <li class="card-choose__item">
+                        <img  class="card-choose__img" src="./img/cofee-icon.svg" alt="">
+                        <div class="card-choose__content">
+                            <h4 class="card-choose__title">Best quality</h4>
+                            <p class="card-choose__text">Discover an endless variety of the world’s best artisan coffee from each of our roasters.</p>
+                        </div>
+                    </li>
+                    <li class="card-choose__item">
+                        <img  class="card-choose__img" src="./img/gift-icon.svg" alt="">
+                        <div class="card-choose__content">
+                            <h4 class="card-choose__title">Exclusive benefits</h4>
+                            <p class="card-choose__text">Special offers and swag when you subscribe, including 30% off your first shipment.</p>
+                        </div>
+                    </li>
+                    <li class="card-choose__item">
+                        <img  class="card-choose__img" src="./img/delivery-icon.svg" alt="">
+                        <div class="card-choose__content">
+                            <h4 class="card-choose__title">Free shipping</h4>
+                            <p class="card-choose__text">We cover the cost and coffee is delivered fast. Peak freshness: guaranteed.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+
+    </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
