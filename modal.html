@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cofee Roaster</title>
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <style>
+        .modal__title {
+            background-color: var(--color-black);
+            color: var(--color-light);
+            padding: 28px 24px;
+            font-size: 28px;
+            border-radius: 10px 10px 0 0;
+        }
+        .modal__content {
+            display: flex;
+            flex-direction: column;
+            padding: 40px 24px 24px;
+            border: 0 0 10px 10px;
+        }
+        .summary__text {
+            font-family: "Fraunces", "Arial", sans-serif;
+            font-size: 24px;
+            line-height: 40px;
+            font-weight: 900;
+            color: var(--color-light-gray);
+        }
+        .cyan__text {
+            color: var(--color-dark-cyan);
+        }
+        .modal__warning-text {
+            margin-bottom: 24px;
+            opacity: .8;
+            color: var(--color-light-gray);
+            line-height: 25px;
+        }
+        .button--modal {
+            align-self: center;
+            font-size: 18px;
+            padding: 15px 31px;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@2"></script>
+    <script type="text/x-template"  id="modal-template">
+        <transition name="modal" >
+            <div class="container">
+                <h3 class="modal__title">Order Summary</h3>
+                <div class="modal__content">
+                    <p class="summary__text">“I drink my coffee as <span class="cyan__text">Filter</span> , with a <span class="cyan__text">Decaf</span> type of bean. <span class="cyan__text">250g</span> ground ala <span class="cyan__text">Cafetiare</span>, sent to me <span class="cyan__text">Every Week</span>.”</p>
+                    <p class="modal__warning-text">Is this correct? You can proceed to checkout or go back to plan selection if something is off. Subscription discount codes can also be redeemed at the checkout. </p>
+                    <button @click="$emit('close')" class="button button--modal">Checkout <span class=""> - $14.00/ mo</span></button>
+                </div>
+            </div>
+            
+        </transition>
+    </script>
+    <div id="app">
+        <button id="show-modal" @click="showModal = true">Show Modal</button>
+        <modal v-if="showModal" @close="showModal = false">
+        </modal>
+    </div>
+  
+  <script>
+      Vue.component("modal", {
+        template: "#modal-template"
+      });
+
+      // start app
+      new Vue({
+        el: "#app",
+        data: {
+          showModal: false
+        }
+      });
+  </script>
+</body>
+</html>
