@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cofee Roaster</title>
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <style>
+      .container--summary {
+          text-align: center;
+      }
+      .summary {
+          background-color: var(--color-black);
+          color: var(--color-light);
+          padding: 25px;
+          border-radius: 10px;
+          margin-bottom: 40px;
+          text-align: left;
+      }
+      .summary__title {
+          margin: 0;
+          margin-bottom: 8px;
+          opacity: .5;
+          text-transform: uppercase;
+          font-size: 16px;
+          font-weight: 400;
+          font-family: "Barlow", "Arial", sans-serif;
+      }
+      .summary__text {
+          font-family: "Fraunces", "Arial", sans-serif;
+          font-size: 24px;
+          line-height: 40px;
+          font-weight: 900;
+      }
+      .button {
+          text-align: center;
+      }
+      .cyan__text {
+          color: var(--color-dark-cyan);
+      }
+      @media screen and (min-width:992px) {
+            .container--summary {
+                text-align: right;
+        }
+      }
+  </style>
+
+  <section>
+    <div class="container container--summary">
+        <div class="summary">
+            <h3 class="summary__title">Order Summary</h3>
+            <p class="summary__text">“I drink my coffee as <span class="cyan__text">Filter</span> , with a <span class="cyan__text">Decaf</span> type of bean. <span class="cyan__text">250g</span> ground ala <span class="cyan__text">Cafetiare</span>, sent to me <span class="cyan__text">Every Week</span>.”</p>
+        </div>
+        <button type="button" class="button">Create my plan!</button>
+    </div>
+  </section>
+  <script src="js/main.js"></script>
+</body>
+</html>
