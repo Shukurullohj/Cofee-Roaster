@@ -16,16 +16,31 @@
 
         
 
-        .option-wrapper--open {
-            display: block;
-        }
+        
         .option__input {
             appearance: none;
         }
         .option {
             display: none;
             margin: 0;
+            margin-bottom: 88px;
         }
+        .optionOpenPreference {
+            display: block;
+        }
+        .optionOpenType {
+            display: block;
+        }
+        .optionOpenLike {
+            display: block;
+        }
+        .optionOpenGrind {
+            display: block;
+        }
+        .optionOpenDeliver {
+            display: block;
+        }
+        
         .option__content {
             background-color: var(--color-light);
             padding: 32px 28px 84px;
@@ -61,15 +76,18 @@
         .option__input:checked ~ .option__content {
             background-color: var(--color-dark-cyan);
         }
-        .select {
+        .button--select {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
             font-size: 24px;
             font-weight: 900;
             font-family: "Fraunces", "Arial", sans-serif;
             color: var(--color-light-gray);
             margin-bottom: 40px;
+            border: none;
+            background: transparent;
         }
         @media screen and (min-width:768px) {
             .option-wrapper {
@@ -77,45 +95,184 @@
                 justify-content: space-between;
                 gap: 10px;
             }
-            .select {
+            .button--select {
                 font-size: 32px;
             }
         }
 
     </style>
-    <div class="select-wrapper">
-        <div class="container">
-            <span class="select">
-                <span class="select__text">How do you drink your coffee?</span>
-                <svg width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>
-            </span>
-            <div class="option-wrapper">
-                <label class="option">
-                    <input class="option__input" type="checkbox">
-                    <div class="option__content">
-                        <h4 class="option__name">Capsule</h4>
-                        <p class="option__text">Compatible with Nespresso systems and similar brewers</p>
+    <div id="app" class="select-wrapper">
+        <div class="container select">
+            <div class="select__list">
+                <div class="select__item">
+                    <button type="button" v-on:click="optionOpenPreference = !optionOpenPreference" class="button--select">
+                        <span class="select__text">How do you drink your coffee?</span>
+                        <svg width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>
+                    </button>
+                    <div  class="option-wrapper">
+                        <label @click="optionSelect(preference)" v-for="(preference, value) in preferences" :key="value" class="option" v-bind:class="showOptionPreference">
+                            <input class="option__input" type="radio" name="option" id="1">
+                            <div class="option__content">
+                                <h4 class="option__name">{{preference.name}}</h4>
+                                <p class="option__text">{{preference.text}}</p>
+                            </div>
+                        </label>
                     </div>
-                </label>
-                <label class="option">
-                    <input class="option__input" type="checkbox">
-                    <div class="option__content">
-                        <h4 class="option__name">Filter</h4>
-                        <p class="option__text">For pour over or drip methods like Aeropress, Chemex, and V60
-                        </p>
+                </div>
+                <div class="select__item">
+                    <button type="button" v-on:click="optionOpenType = !optionOpenType" class="button--select">
+                        <span class="select__text">What type of coffee?</span>
+                        <svg width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>
+                    </button>
+                    <div  class="option-wrapper">
+                        <label v-bind:class="showOptionType" @click="optionSelectType(type)" v-for="(type, value) in types" :key="value" class="option">
+                            <input class="option__input" type="radio" name="option" id="1">
+                            <div class="option__content">
+                                <h4 class="option__name">{{type.name}}</h4>
+                                <p class="option__text">{{type.text}}</p>
+                            </div>
+                        </label>
                     </div>
-                </label>
-                <label class="option">
-                    <input class="option__input" type="checkbox">
-                    <div class="option__content">
-                        <h4 class="option__name">Expresso</h4>
-                        <p class="option__text">Compatible with Nespresso systems and similar brewers</p>
+                </div>
+                <div class="select__item">
+                    <button type="button" v-on:click="optionOpenLike = !optionOpenLike" class="button--select">
+                        <span class="select__text">How much would you like?</span>
+                        <svg width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>
+                    </button>
+                    <div class="option-wrapper">
+                        <label v-bind:class="showOptionLike" @click="optionSelectLike(like)" v-for="(like, value) in likes" :key="value" class="option">
+                            <input class="option__input" type="radio" name="option" id="1">
+                            <div class="option__content">
+                                <h4 class="option__name">{{like.name}}</h4>
+                                <p class="option__text">{{like.text}}</p>
+                            </div>
+                        </label>
                     </div>
-                </label>
+                </div>
+                <div class="select__item">
+                    <button type="button" v-on:click="optionOpenGrind = !optionOpenGrind" class="button--select">
+                        <span class="select__text">Want us to grind them?</span>
+                        <svg width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>
+                    </button>
+                    <div class="option-wrapper">
+                        <label v-bind:class="showOptionGrind" @click="optionSelectGrind(grind)" v-for="(grind, value) in grinds" :key="value" class="option">
+                            <input class="option__input" type="radio" name="option" id="1">
+                            <div class="option__content">
+                                <h4 class="option__name">{{grind.name}}</h4>
+                                <p class="option__text">{{grind.text}}</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="select__item">
+                    <button type="button" v-on:click="optionOpenDeliver = !optionOpenDeliver" class="button--select">
+                        <span class="select__text">How often should we deliver?</span>
+                        <svg width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>
+                    </button>
+                    <div class="option-wrapper">
+                        <label v-bind:class="showOptionDeliver"  @click="optionSelectDeliver(deliver)" v-for="(deliver, value) in delivers" :key="value" class="option">
+                            <input class="option__input" type="radio" name="option" id="1">
+                            <div class="option__content">
+                                <h4 class="option__name">{{deliver.name}}</h4>
+                                <p class="option__text">{{deliver.text}}</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
             </div>
         </div>
+        <p>Slece{{selectedPreference}}</p>
     </div>
-    
-  <script src="js/main.js"></script>
+    <script src="https://unpkg.com/vue@2"></script>
+  <script > 
+
+      new Vue({
+        el: "#app",
+        data: {
+          optionOpenPreference: false,
+          optionOpenType: false,
+          optionOpenLike: false,
+          optionOpenGrind: false,
+          optionOpenDeliver: false,
+          selectedPreference: '',
+          selectedType: '',
+          selectedLike : '',
+          selectedGrind: '',
+          selectedDeliver: '',
+          
+            preferences: [
+                {name: 'Capsule', text: 'Compatible with Nespresso systems and similar brewers', value: 1},
+                {name: 'Filter', text: 'For pour over or drip methods like Aeropress, Chemex, and V60', value: 2},
+                {name: 'Espresso', text: 'Compatible with Nespresso systems and similar brewers', value: 3}
+            ],
+            types: [
+                {name: 'Single Origin', text: 'Compatible with Nespresso systems and similar brewers', value: 1},
+                {name: 'Decaf', text: 'For pour over or drip methods like Aeropress, Chemex, and V60', value: 2},
+                {name: 'Blended', text: 'Compatible with Nespresso systems and similar brewers', value: 3}
+            ],
+            likes: [
+                {name: '250g', text: 'Compatible with Nespresso systems and similar brewers', value: 1},
+                {name: '500g', text: 'For pour over or drip methods like Aeropress, Chemex, and V60', value: 2},
+                {name: '1000g', text: 'Compatible with Nespresso systems and similar brewers', value: 3}
+            ],
+            grinds: [
+                {name: 'Wholebean', text: 'Compatible with Nespresso systems and similar brewers', value: 1},
+                {name: 'Filter', text: 'For pour over or drip methods like Aeropress, Chemex, and V60', value: 2},
+                {name: 'Cafetiere', text: 'Compatible with Nespresso systems and similar brewers', value: 3}
+            ],
+            delivers: [
+                {name: 'Every week', text: 'Compatible with Nespresso systems and similar brewers', value: 1},
+                {name: 'Every 2 weeks', text: 'For pour over or drip methods like Aeropress, Chemex, and V60', value: 2},
+                {name: 'Every month', text: 'Compatible with Nespresso systems and similar brewers', value: 3}
+            ],
+            
+            },
+            
+        methods: {
+            optionSelectPreference(preference) {
+                this.selectedPreference = preference.name
+            },
+            optionSelectType(type) {
+                this.selectedType = type.name
+            },
+            optionSelectLike(like) {
+                this.selectedLike = like.name
+            },
+            optionSelectGrind(grind) {
+                this.selectedGrind = grind.name
+            },
+            optionSelectDeliver(deliver) {
+                this.selectedDeliver = deliver.name
+            }
+        },
+        computed: {
+            showOptionPreference: function() {
+                return {
+                    optionOpenPreference : this.optionOpenPreference,
+                }
+            {}},
+            showOptionType: function() {
+                return {
+                    optionOpenType : this.optionOpenType,
+                }
+            {}},
+            showOptionLike: function() {
+                return {
+                    optionOpenLike : this.optionOpenLike,
+                }
+            {}},
+            showOptionGrind: function() {
+                return {
+                    optionOpenGrind : this.optionOpenGrind,
+                }
+            {}},
+            showOptionDeliver: function() {
+                return {
+                    optionOpenDeliver : this.optionOpenDeliver,
+                }
+            {}},
+        }
+      });
+  </script>
 </body>
 </html>
