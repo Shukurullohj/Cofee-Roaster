@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cofee Roaster</title>
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <style>
+
+        .select-tab {
+            display: none;
+        }
+        
+        .option__input {
+            appearance: none;
+        }
+
+        .option {
+            display: none;
+            margin: 0;
+        }
+
+        .optionOpenPreference {
+            display: block;
+        }
+
+        .select__up-icon {
+            display: none;
+        }
+
+        .optionOpenPreference  .select__up-icon{
+            display: block;
+        }
+
+        .optionOpenPreference  .select__down-icon{
+            display: none;
+        }
+
+        .optionOpenType  .select__up-icon{
+            display: block;
+        }
+
+        .optionOpenType  .select__down-icon{
+            display: none;
+        }
+
+        .optionOpenLike  .select__up-icon{
+            display: block;
+        }
+
+        .optionOpenLike  .select__down-icon{
+            display: none;
+        }
+
+        .optionOpenGrind  .select__up-icon{
+            display: block;
+        }
+
+        .optionOpenGrind  .select__down-icon{
+            display: none;
+        }
+
+        .optionOpenDeliver  .select__up-icon{
+            display: block;
+        }
+
+        .optionOpenDeliver  .select__down-icon{
+            display: none;
+        }
+
+        .optionOpenType {
+            display: block;
+        }
+
+        .optionOpenLike {
+            display: block;
+        }
+
+        .optionOpenGrind {
+            display: block;
+        }
+
+        .optionOpenDeliver {
+            display: block;
+        }
+        
+        .option:last-child {
+            margin-bottom: 110px;
+        }
+
+        .option__content {
+            background-color: var(--color-light);
+            padding: 32px 28px 84px;
+            border-radius: 8px;
+        }
+
+        .option__name {
+            font-size: 24px;
+            margin: 0;
+            margin-bottom: 24px;
+        }
+
+        .option__text {
+            font-size: 16px;
+        }
+
+        .option__content:hover {
+            background-color: var(--color-pale-orange);
+        }
+
+        .option--active {
+            background-color: var(--color-dark-cyan);
+            color: var(--color-light);
+        }
+
+        .checkbox__input {
+            position: absolute;
+            appearance: none;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+            opacity: 1;
+        }
+
+        .option__input:checked ~ .option__content {
+            background-color: var(--color-dark-cyan);
+        }
+
+        .button--select {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            font-size: 24px;
+            font-weight: 900;
+            font-family: "Fraunces", "Arial", sans-serif;
+            color: var(--color-light-gray);
+            margin-bottom: 40px;
+            border: none;
+            background: transparent;
+        }
+        
+        .select-tab__list { 
+            list-style: none;
+        }
+
+        .select-tab__button {
+            border: none;
+            background-color: transparent;
+            color: var(--color-black);
+            opacity: 0.4;
+            font-family: "Fraunces", "Arial", sans-serif;
+            font-weight: 900;
+            font-size: 24px;
+            transition: ease .2s;
+        }
+        
+        .select-tab__button:hover {
+            margin-left: 5px;
+            opacity: 0.6;
+        }
+        
+        .select-tab__button--active {
+            opacity: 1;
+        }
+        
+        .disabled {
+            opacity: 0.2;
+        }
+        
+        .select-tab__number {
+            margin-right: 28px;
+        }
+        
+        .select-tab__button:hover .select-tab__number {
+            opacity: 0.4;
+        }
+        
+        .select-tab__border-bottom {
+            display: inline-block;
+            width: 255px;
+            background-color: var(--color-light-gray);
+            padding: 0.5px;
+            opacity: 0.2;
+        }
+        @media screen and (min-width:768px) {
+            .select {
+                display: flex;
+            }
+
+            .option-wrapper {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+            }
+
+            .option__content {
+                width: 228px;
+                height: 250px;
+            }
+
+            .button--select {
+                font-size: 32px;
+            }
+        }
+        @media screen and (min-width:992px) {
+            .select-tab {
+                display: block;
+                width: 255px;
+                margin-right: 125px;
+            }
+
+            .select__list {
+                width: 710px;
+            }
+
+            .select-tab__list {
+                position: fixed;
+            }
+
+            .select__item {
+                
+                margin-left: auto;
+            }   
+        }
+    </style>
+    <div id="app" class="select-wrapper">
+        <div class="container select">
+            <div class="select-tab">
+                <ul class="select-tab__list">
+                    <li class="select-tab__item">
+                        <button class="select-tab__button" @click="goto('preference')"><span class="select-tab__number">01</span>Preference</button>
+                    </li>
+                    <hr class="select-tab__border-bottom" >
+                    <li class="select-tab__item" >
+                        <button class="select-tab__button" @click="goto('type')"><span class="select-tab__number">02</span>Bean Type</button>
+                    </li>
+                    <hr class="select-tab__border-bottom">
+                    <li class="select-tab__item" >
+                        <button class="select-tab__button" @click="goto('like')"><span class="select-tab__number">03</span>Quantity</button>
+                    </li>
+                    <hr class="select-tab__border-bottom">
+                    <li v-if="selectedPreference == ''" class="select-tab__item disabled">
+                        <button class="select-tab__button" @click="goto('grind')"><span class="select-tab__number">04</span>Grind Option</button>
+                    </li>
+                    <li v-else class="select-tab__item">
+                        <button class="select-tab__button" @click="goto('grind')"><span class="select-tab__number">04</span>Grind Option</button>
+                    </li>
+                    <hr class="select-tab__border-bottom">
+                    <li v-if="selectedPreference == '' && selectedType == '' " class="select-tab__item disabled">
+                        <button class="select-tab__button" @click="goto('deliver')"><span class="select-tab__number">05</span>Deliveries</button>
+                    </li>
+                    <li v-else class="select-tab__item">
+                        <button class="select-tab__button" @click="goto('deliver')"><span class="select-tab__number">05</span>Deliveries</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="select__list">
+                <div class="select__item" ref="preference">
+                    <button type="button"  v-bind:class="showOptionPreference" v-on:click="optionOpenPreference = !optionOpenPreference" class="button--select">
+                        <span class="select__text">How do you drink your coffee?</span>
+                        <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
+                        <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
+                    </button>
+                    <div  class="option-wrapper">
+                        <label @click="optionSelectPreference(preference)" v-for="(preference, value) in preferences" :key="value" class="option" v-bind:class="showOptionPreference">
+                            <input v-on:change="isDisabled = !isDisabled" class="option__input" type="radio" name="preference" id="1">
+                            <div class="option__content">
+                                <h4 class="option__name">{{preference.name}}</h4>
+                                <p class="option__text">{{preference.text}}</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="select__item" ref="type">
+                    <button type="button" v-on:click="optionOpenType = !optionOpenType" v-bind:class="showOptionType" class="button--select">
+                        <span class="select__text">What type of coffee?</span>
+                        <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
+                        <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
+                    </button>
+                    <div  class="option-wrapper">
+                        <label v-bind:class="showOptionType" @click="optionSelectType(type)" v-for="(type, value) in types" :key="value" class="option">
+                            <input v-on:change="isDisabled = !isDisabled" class="option__input" type="radio" name="type" id="1">
+                            <div class="option__content">
+                                <h4 class="option__name">{{type.name}}</h4>
+                                <p class="option__text">{{type.text}}</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="select__item" ref="like">
+                    <button type="button" v-on:click="optionOpenLike = !optionOpenLike" v-bind:class="showOptionLike" class="button--select">
+                        <span class="select__text">How much would you like?</span>
+                        <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
+                        <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
+                    </button>
+                    <div class="option-wrapper">
+                        <label v-bind:class="showOptionLike" @click="optionSelectLike(like)" v-for="(like, value) in likes" :key="value" class="option">
+                            <input class="option__input" type="radio" name="like" id="1">
+                            <div class="option__content">
+                                <h4 class="option__name">{{like.name}}</h4>
+                                <p class="option__text">{{like.text}}</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div v-if="selectedPreference == ''" class="select__item disabled" ref="grind">
+                    <button type="button" class="button--select">
+                        <span class="select__text">Want us to grind them?</span>
+                        <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
+                        <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
+                    </button>
+                </div>
+                <div v-else class="select__item" ref="grind">
+                    <button type="button" v-on:click="optionOpenGrind = !optionOpenGrind" v-bind:class="showOptionGrind" class="button--select">
+                        <span class="select__text">Want us to grind them?</span>
+                        <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
+                        <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
+                    </button>
+                    <div class="option-wrapper">
+                        <label v-bind:class="showOptionGrind" @click="optionSelectGrind(grind)" v-for="(grind, value) in grinds" :key="value" class="option">
+                            <input class="option__input" type="radio" name="grind" id="1">
+                            <div class="option__content">
+                                <h4 class="option__name">{{grind.name}}</h4>
+                                <p class="option__text">{{grind.text}}</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div v-if="selectedPreference == ''" class="select__item disabled" ref="deliver">
+                    <button type="button" class="button--select">
+                        <span class="select__text">Want us to grind them?</span>
+                        <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
+                        <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
+                    </button>
+                </div>
+                <div v-else class="select__item" ref="deliver">
+                    <button type="button" v-on:click="optionOpenDeliver = !optionOpenDeliver" v-bind:class="showOptionDeliver"  class="button--select">
+                        <span class="select__text">How often should we deliver?</span>
+                        <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
+                        <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
+                    </button>
+                    <div class="option-wrapper">
+                        <label v-bind:class="showOptionDeliver"  @click="optionSelectDeliver(deliver)" v-for="(deliver, value) in delivers" :key="value" class="option">
+                            <input class="option__input" type="radio" name="deliver" id="1">
+                            <div class="option__content">
+                                <h4 class="option__name">{{deliver.name}}</h4>
+                                <p class="option__text">{{deliver.text}}</p>
+                            </div>
+                            
+                        </label>
+                    </div>
+                </div>
+                    <section>
+                        <div class="container container--summary">
+                            <div class="summary">
+                                <h3 class="summary__title">Order Summary</h3>
+                                <p class="summary__text">“I drink my coffee as <span v-if="optionOpenPreference" class="cyan__text">{{selectedPreference}}</span> <span class="cyan__text" v-else>_____</span> , with a <span v-if="optionOpenType" class="cyan__text">{{selectedType}}</span><span class="cyan__text" v-else>_____</span> type of bean. <span v-if="optionOpenLike" class="cyan__text">{{selectedLike}} </span><span class="cyan__text" v-else>_____</span> ground ala <span v-if="optionOpenGrind" class="cyan__text">{{selectedGrind}}</span><span class="cyan__text" v-else>_____</span>, sent to me <span v-if="optionOpenDeliver" class="cyan__text">{{selectedDeliver}}</span><span class="cyan__text" v-else>_____</span>.”</p>
+                            </div>
+                            <button type="button" class="button">Create my plan!</button>
+                        </div>
+                      </section>
+                
+            </div>
+        </div>
+    </div>
+    <style>
+        .container--summary {
+            text-align: center;
+        }
+        .summary {
+            background-color: var(--color-black);
+            color: var(--color-light);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .summary__title {
+            margin: 0;
+            margin-bottom: 8px;
+            opacity: .5;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 400;
+            font-family: "Barlow", "Arial", sans-serif;
+        }
+        .summary__text {
+            font-family: "Fraunces", "Arial", sans-serif;
+            font-size: 24px;
+            line-height: 40px;
+            font-weight: 900;
+        }
+        
+        .cyan__text {
+            color: var(--color-dark-cyan);
+        }
+        @media screen and (min-width:992px) {
+              .container--summary {
+                  text-align: right;
+          }
+        }
+    </style>
+  
+    
+    <script src="https://unpkg.com/vue@2"></script>
+  <script > 
+
+      new Vue({
+        el: "#app",
+        data: {
+          isDisabled: false,
+          selected: false,
+          optionOpenPreference: false,
+          optionOpenType: false,
+          optionOpenLike: false,
+          optionOpenGrind: false,
+          optionOpenDeliver: false,
+          selectedPreference: '',
+          selectedType: '',
+          selectedLike : '',
+          selectedGrind: '',
+          selectedDeliver: '',
+          
+            preferences: [
+                {name: 'Capsule', text: 'Compatible with Nespresso systems and similar brewers', value: 1},
+                {name: 'Filter', text: 'For pour over or drip methods like Aeropress, Chemex, and V60', value: 2},
+                {name: 'Espresso', text: 'Compatible with Nespresso systems and similar brewers', value: 3}
+            ],
+            types: [
+                {name: 'Single Origin', text: 'Compatible with Nespresso systems and similar brewers', value: 1},
+                {name: 'Decaf', text: 'For pour over or drip methods like Aeropress, Chemex, and V60', value: 2},
+                {name: 'Blended', text: 'Compatible with Nespresso systems and similar brewers', value: 3}
+            ],
+            likes: [
+                {name: '250g', text: 'Compatible with Nespresso systems and similar brewers', value: 1},
+                {name: '500g', text: 'For pour over or drip methods like Aeropress, Chemex, and V60', value: 2},
+                {name: '1000g', text: 'Compatible with Nespresso systems and similar brewers', value: 3}
+            ],
+            grinds: [
+                {name: 'Wholebean', text: 'Compatible with Nespresso systems and similar brewers', value: 1},
+                {name: 'Filter', text: 'For pour over or drip methods like Aeropress, Chemex, and V60', value: 2},
+                {name: 'Cafetiere', text: 'Compatible with Nespresso systems and similar brewers', value: 3}
+            ],
+            delivers: [
+                {name: 'Every week', text: 'Compatible with Nespresso systems and similar brewers', value: 1},
+                {name: 'Every 2 weeks', text: 'For pour over or drip methods like Aeropress, Chemex, and V60', value: 2},
+                {name: 'Every month', text: 'Compatible with Nespresso systems and similar brewers', value: 3}
+            ],
+            
+            },
+            
+        methods: {
+            goto(refName) {
+            var element = this.$refs[refName];
+            var top = element.offsetTop;
+
+            window.scrollTo(0, top);
+            },
+            optionSelectPreference(preference) {
+                this.selectedPreference = preference.name
+            },
+            optionSelectType(type) {
+                this.selectedType = type.name
+            },
+            optionSelectLike(like) {
+                this.selectedLike = like.name
+            },
+            optionSelectGrind(grind) {
+                this.selectedGrind = grind.name
+            },
+            optionSelectDeliver(deliver) {
+                this.selectedDeliver = deliver.name
+            }
+        },
+        computed: {
+            showOptionPreference: function() {
+                return {
+                    optionOpenPreference : this.optionOpenPreference,
+                }
+            },
+            showOptionType: function() {
+                return {
+                    optionOpenType : this.optionOpenType,
+                }
+            },
+            showOptionLike: function() {
+                return {
+                    optionOpenLike : this.optionOpenLike,
+                }
+            },
+            showOptionGrind: function() {
+                return {
+                    optionOpenGrind : this.optionOpenGrind,
+                }
+            },
+            showOptionDeliver: function() {
+                return {
+                    optionOpenDeliver : this.optionOpenDeliver,
+                }
+            },
+        }
+      });
+  </script>
+</body>
+</html>
