@@ -102,7 +102,7 @@ h1, h2, h3, h4 {
 
 /* CONTAINER */
 .container {
-  max-width: 1150px;
+  max-width: 1280px;
   padding-left: 24px;
   padding-right: 24px;
   margin-left: auto;
@@ -208,7 +208,7 @@ nav{
 
 .banner {
   position: relative;
-  background: url(./img/about-us-bg.jpg) no-repeat  center;
+  background: url('../assets/home/mobile/image-hero-coffeepress.jpg') no-repeat  center;
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.5);
   height: 500px;
@@ -216,6 +216,7 @@ nav{
   overflow: hidden;
   border-radius: 10px;
   z-index: -1;
+  margin-bottom: 120px;
 }
 
 .banner:after {
@@ -230,14 +231,11 @@ nav{
 }
 
 .banner--plan {
-  background: url('./img/plan-bg.jpg') no-repeat center center fixed;
-  background-attachment: fixed;
-  background-size: cover;
+  background: url('../assets/plan/mobile/image-hero-blackcup.jpg') no-repeat center;
 }
 
-.banner--home {
-  background: url('../img/home-banner-bg.jpg') no-repeat center center fixed;
-  background-size: cover;
+.banner--about {
+  background: url('../assets/about/mobile/image-hero-whitecup.jpg') no-repeat center;
 }
 
 .banner--about .banner__title {
@@ -471,8 +469,15 @@ nav{
 .footer-social__icon:hover {
   color: var(--color-pale-orange);
 }
+
+/* OUR COMMITMENT */
+
+.commitment {
+  margin-bottom: 120px;
+}
 .commitment__img {
   width: 100vw;
+  height: 400px;
   border-radius: 10px;
   margin-bottom: 48px;
 }
@@ -484,6 +489,8 @@ nav{
   margin: 0;
   margin-bottom: 24px;
 }
+
+/* UNCOMPROMISSING */
 .uncompromissing {
   position: relative;
   display: flex;
@@ -513,6 +520,7 @@ nav{
   margin-bottom: 24px;
 }
 
+/* HEADQUARTER */
 .headquarter {
   padding: 80px 24px;
   text-align: center;
@@ -542,17 +550,14 @@ nav{
   margin-bottom: 20px;
 }
 
-.select-tab {
+/* OPTION  */
+.option {
   display: none;
+  margin: 0;
 }
 
 .option__input {
   appearance: none;
-}
-
-.option {
-  display: none;
-  margin: 0;
 }
 
 .optionOpenPreference {
@@ -675,6 +680,10 @@ nav{
   background: transparent;
 }
 
+.select-tab {
+  display: none;
+}
+
 .select-tab__list { 
   list-style: none;
 }
@@ -779,7 +788,15 @@ nav{
   .nav__sidebar {
     display: none;
   }
-
+  .banner {
+    background: url('../assets/home/tablet/image-hero-coffeepress.jpg') no-repeat  center;
+  }
+  .banner--about {
+    background: url('../assets/about/tablet/image-hero-whitecup.jpg') no-repeat  center;
+  }
+  .banner--plan {
+    background: url('../assets/plan/tablet/image-hero-blackcup.jpg') no-repeat  center;
+  }
   .banner:after {
     display: none;
   }
@@ -910,6 +927,11 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 300px;
+  }
+
+  .commitment__content {
+    text-align: left;
   }
 
   .commitment__img {
@@ -935,14 +957,17 @@ nav{
 
   .headquarter__title {
     text-align: left;
+    margin-right: 15px;
   }
 
   .headquarter__list {
     display: flex;
+    justify-content: space-between;
     margin-bottom: 45px;
   }
 
   .headquarter__item {
+    width: 223px;
     text-align: left;
     margin: 0;
   }
@@ -971,7 +996,7 @@ nav{
   }
 }
 
-@media screen and (min-width:992px) {
+@media screen and (min-width:1200px) {
   body {
     font-size: 16px;
   }
@@ -982,7 +1007,26 @@ nav{
   }
 
   .banner {
-    height: 600px;
+    background: url('../assets/home/desktop/image-hero-coffeepress.jpg');
+  }
+
+  .banner__title {
+    font-size: 72px;
+    line-height: 72px;
+  }
+
+  .banner--about .banner__title {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .banner--about {
+    background: url('../assets/about/desktop/image-hero-whitecup.jpg');
+    height: 450px;
+  }
+
+  .banner--plan {
+    background: url('../assets/plan/desktop/image-hero-blackcup.jpg');
   }
 
   .our-collection-text {
@@ -1048,6 +1092,10 @@ nav{
     margin: 0;
   }
 
+  .commitment {
+    margin-bottom: 200px;
+  }
+
   .commitment__img {
     width: 445px;
     height: 520px;
@@ -1061,17 +1109,17 @@ nav{
   }
 
   .uncompromissing__img {
-    width: 445px;
-    height: 474px;
-    top: auto;
+    width: 400px;
+    height: 390px;
+    top: -10%;
     right: 85px;
-    bottom: 45px;
   }
 
   .uncompromissing__content {
     width: 50%;
-    padding-right: 100px;
+    margin-right: 100px;
     text-align: left;
+    margin-bottom: 100px;
   }
 
   .uncompromissing__title {
