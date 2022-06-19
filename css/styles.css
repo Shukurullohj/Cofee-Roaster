@@ -798,13 +798,14 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.3s ease;
+  
 }
 
 .modal__card {
   width: 327px;
   height: 600px;
   text-align: left;
+  transition: opacity 0.3s ease;
 }
 
 .modal__title {

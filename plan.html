@@ -10,184 +10,184 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<div id="app">
-    <header v-bind:class="{showNav: showNav}">
-        <div class="container">
-        <nav class="nav">
-            <a href="index.html" class="site-logo">
-            <span class="site-logo__icon">
-                <img  src="./img/site-icon.svg" height="16" width="16">
-            </span>
-            <h1 class="site-logo__text">coffeeroasters</h1>
-            </a>
-            <span @click="showNav = !showNav" class="nav__sidebar"><svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.5C0 0.671573 0.671573 0 1.5 0H14.5C15.3284 0 16 0.671573 16 1.5C16 2.32843 15.3284 3 14.5 3H1.5C0.671573 3 0 2.32843 0 1.5ZM0 7.5C0 6.67157 0.671573 6 1.5 6H14.5C15.3284 6 16 6.67157 16 7.5C16 8.32843 15.3284 9 14.5 9H1.5C0.671573 9 0 8.32843 0 7.5ZM1.5 12C0.671573 12 0 12.6716 0 13.5C0 14.3284 0.671573 15 1.5 15H14.5C15.3284 15 16 14.3284 16 13.5C16 12.6716 15.3284 12 14.5 12H1.5Z" fill="#333D4B"/>
-            </svg>
-            </span>
-            <ul class="nav__list">
-                <li class="nav__item"><a class="nav__link" href="index.html">Home</a></li>
-                <li class="nav__item"><a class="nav__link" href="about-us.html">About</a></li>
-                <li class="nav__item"><a class="nav__link" href="#">Create Your Plan</a></li>
-            </ul>
-        </nav>
-        </div>
-    </header>
-    <section>
-        <div class="container">
-            <div class="banner banner--plan">
-                <div class="banner__content">
-                    <h3 class="banner__title"> About Us</h3>
-                    <p class="banner__text">Build a subscription plan that best fits your needs. We offer an assortment of the best 
-                    artisan coffees from around the globe delivered fresh to your door.</p>     
-                </div>
-            </div>
-            <div class="how-works how-works--dark">
-                <ul class="how-works__list">
-                    <li class="how-works__item">
-                        <h3 class="how-works__number">01</h3>
-                        <h4 class="how-works__name">Pick your <br> coffee</h4>
-                        <p>Select from our evolving range of artisan coffees. Our beans are ethically sourced and we pay fair prices for them. There are new coffees in all profiles every month for you to try out.</p>
-                    </li>
-                    <li class="how-works__item">
-                        <h3 class="how-works__number">02</h3>
-                        <h4 class="how-works__name">Choose the frequency</h4>
-                        <p>Customize your order frequency, quantity, even your roast style and grind type. Pause, skip or cancel your subscription with no commitment through our online portal.</p>
-                    </li>
-                    <li class="how-works__item">
-                        <h3 class="how-works__number">03</h3>
-                        <h4 class="how-works__name">Receive and enjoy!</h4>
-                        <p>We ship your package within 48 hours, freshly roasted. Sit back and enjoy award-winning 
-                            world-class coffees curated to provide a distinct tasting experience.</p>
-                    </li>
+    <div id="app">
+        <header v-bind:class="{showNav: showNav}">
+            <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="site-logo">
+                    <span class="site-logo__icon">
+                        <img  src="./img/site-icon.svg" height="16" width="16">
+                    </span>
+                    <h1 class="site-logo__text">coffeeroasters</h1>
+                </a>
+                <span @click="showNav = !showNav" class="nav__sidebar"><svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.5C0 0.671573 0.671573 0 1.5 0H14.5C15.3284 0 16 0.671573 16 1.5C16 2.32843 15.3284 3 14.5 3H1.5C0.671573 3 0 2.32843 0 1.5ZM0 7.5C0 6.67157 0.671573 6 1.5 6H14.5C15.3284 6 16 6.67157 16 7.5C16 8.32843 15.3284 9 14.5 9H1.5C0.671573 9 0 8.32843 0 7.5ZM1.5 12C0.671573 12 0 12.6716 0 13.5C0 14.3284 0.671573 15 1.5 15H14.5C15.3284 15 16 14.3284 16 13.5C16 12.6716 15.3284 12 14.5 12H1.5Z" fill="#333D4B"/>
+                </svg>
+                </span>
+                <ul class="nav__list">
+                    <li class="nav__item"><a class="nav__link" href="index.html">Home</a></li>
+                    <li class="nav__item"><a class="nav__link" href="about-us.html">About</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#">Create Your Plan</a></li>
                 </ul>
+            </nav>
             </div>
-            <div class="select-wrapper">
-                <div class="container select">
-                    <div class="select-tab">
-                        <ul class="select-tab__list">
-                            <li class="select-tab__item">
-                                <button class="select-tab__button" @click="goto('preference')"><span class="select-tab__number">01</span>Preference</button>
-                            </li>
-                            <hr class="select-tab__border-bottom" >
-                            <li class="select-tab__item" >
-                                <button class="select-tab__button" @click="goto('type')"><span class="select-tab__number">02</span>Bean Type</button>
-                            </li>
-                            <hr class="select-tab__border-bottom">
-                            <li class="select-tab__item" >
-                                <button class="select-tab__button" @click="goto('like')"><span class="select-tab__number">03</span>Quantity</button>
-                            </li>
-                            <hr class="select-tab__border-bottom">
-                            <li v-if="selectedPreference == ''" class="select-tab__item disabled">
-                                <button class="select-tab__button" @click="goto('grind')"><span class="select-tab__number">04</span>Grind Option</button>
-                            </li>
-                            <li v-else class="select-tab__item">
-                                <button class="select-tab__button" @click="goto('grind')"><span class="select-tab__number">04</span>Grind Option</button>
-                            </li>
-                            <hr class="select-tab__border-bottom">
-                            <li v-if="selectedPreference == '' && selectedType == '' " class="select-tab__item disabled">
-                                <button class="select-tab__button" @click="goto('deliver')"><span class="select-tab__number">05</span>Deliveries</button>
-                            </li>
-                            <li v-else class="select-tab__item">
-                                <button class="select-tab__button" @click="goto('deliver')"><span class="select-tab__number">05</span>Deliveries</button>
-                            </li>
-                        </ul>
+        </header>
+        <section>
+            <div class="container">
+                <div class="banner banner--plan">
+                    <div class="banner__content">
+                        <h3 class="banner__title"> About Us</h3>
+                        <p class="banner__text">Build a subscription plan that best fits your needs. We offer an assortment of the best 
+                        artisan coffees from around the globe delivered fresh to your door.</p>     
                     </div>
-                    <div class="select__list">
-                        <div class="select__item" ref="preference">
-                            <button type="button"  v-bind:class="showOptionPreference" v-on:click="optionOpenPreference = !optionOpenPreference" class="button--select">
-                                <span class="select__text">How do you drink your coffee?</span>
-                                <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
-                                <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
-                            </button>
-                            <div  class="option-wrapper">
-                                <label @click="optionSelectPreference(preference)" v-for="(preference, value) in preferences" :key="value" class="option" v-bind:class="showOptionPreference">
-                                    <input v-on:change="isDisabled = !isDisabled" class="option__input" type="radio" name="preference" id="1">
-                                    <div class="option__content">
-                                        <h4 class="option__name">{{preference.name}}</h4>
-                                        <p class="option__text">{{preference.text}}</p>
-                                    </div>
-                                </label>
+                </div>
+                <div class="how-works how-works--dark">
+                    <ul class="how-works__list">
+                        <li class="how-works__item">
+                            <h3 class="how-works__number">01</h3>
+                            <h4 class="how-works__name">Pick your <br> coffee</h4>
+                            <p>Select from our evolving range of artisan coffees. Our beans are ethically sourced and we pay fair prices for them. There are new coffees in all profiles every month for you to try out.</p>
+                        </li>
+                        <li class="how-works__item">
+                            <h3 class="how-works__number">02</h3>
+                            <h4 class="how-works__name">Choose the frequency</h4>
+                            <p>Customize your order frequency, quantity, even your roast style and grind type. Pause, skip or cancel your subscription with no commitment through our online portal.</p>
+                        </li>
+                        <li class="how-works__item">
+                            <h3 class="how-works__number">03</h3>
+                            <h4 class="how-works__name">Receive and enjoy!</h4>
+                            <p>We ship your package within 48 hours, freshly roasted. Sit back and enjoy award-winning 
+                                world-class coffees curated to provide a distinct tasting experience.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="select-wrapper">
+                    <div class="container select">
+                        <div class="select-tab">
+                            <ul class="select-tab__list">
+                                <li class="select-tab__item">
+                                    <button class="select-tab__button" @click="goto('preference')"><span class="select-tab__number">01</span>Preference</button>
+                                </li>
+                                <hr class="select-tab__border-bottom" >
+                                <li class="select-tab__item" >
+                                    <button class="select-tab__button" @click="goto('type')"><span class="select-tab__number">02</span>Bean Type</button>
+                                </li>
+                                <hr class="select-tab__border-bottom">
+                                <li class="select-tab__item" >
+                                    <button class="select-tab__button" @click="goto('like')"><span class="select-tab__number">03</span>Quantity</button>
+                                </li>
+                                <hr class="select-tab__border-bottom">
+                                <li v-if="selectedPreference == ''" class="select-tab__item disabled">
+                                    <button class="select-tab__button" @click="goto('grind')"><span class="select-tab__number">04</span>Grind Option</button>
+                                </li>
+                                <li v-else class="select-tab__item">
+                                    <button class="select-tab__button" @click="goto('grind')"><span class="select-tab__number">04</span>Grind Option</button>
+                                </li>
+                                <hr class="select-tab__border-bottom">
+                                <li v-if="selectedPreference == '' && selectedType == '' " class="select-tab__item disabled">
+                                    <button class="select-tab__button" @click="goto('deliver')"><span class="select-tab__number">05</span>Deliveries</button>
+                                </li>
+                                <li v-else class="select-tab__item">
+                                    <button class="select-tab__button" @click="goto('deliver')"><span class="select-tab__number">05</span>Deliveries</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="select__list">
+                            <div class="select__item" ref="preference">
+                                <button type="button"  v-bind:class="showOptionPreference" v-on:click="optionOpenPreference = !optionOpenPreference" class="button--select">
+                                    <span class="select__text">How do you drink your coffee?</span>
+                                    <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
+                                    <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
+                                </button>
+                                <div  class="option-wrapper">
+                                    <label @click="optionSelectPreference(preference)" v-for="(preference, value) in preferences" :key="value" class="option" v-bind:class="showOptionPreference">
+                                        <input v-on:change="isDisabled = !isDisabled" class="option__input" type="radio" name="preference" id="1">
+                                        <div class="option__content">
+                                            <h4 class="option__name">{{preference.name}}</h4>
+                                            <p class="option__text">{{preference.text}}</p>
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="select__item" ref="type">
-                            <button type="button" v-on:click="optionOpenType = !optionOpenType" v-bind:class="showOptionType" class="button--select">
-                                <span class="select__text">What type of coffee?</span>
-                                <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
-                                <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
-                            </button>
-                            <div  class="option-wrapper">
-                                <label v-bind:class="showOptionType" @click="optionSelectType(type)" v-for="(type, value) in types" :key="value" class="option">
-                                    <input v-on:change="isDisabled = !isDisabled" class="option__input" type="radio" name="type" id="1">
-                                    <div class="option__content">
-                                        <h4 class="option__name">{{type.name}}</h4>
-                                        <p class="option__text">{{type.text}}</p>
-                                    </div>
-                                </label>
+                            <div class="select__item" ref="type">
+                                <button type="button" v-on:click="optionOpenType = !optionOpenType" v-bind:class="showOptionType" class="button--select">
+                                    <span class="select__text">What type of coffee?</span>
+                                    <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
+                                    <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
+                                </button>
+                                <div  class="option-wrapper">
+                                    <label v-bind:class="showOptionType" @click="optionSelectType(type)" v-for="(type, value) in types" :key="value" class="option">
+                                        <input v-on:change="isDisabled = !isDisabled" class="option__input" type="radio" name="type" id="1">
+                                        <div class="option__content">
+                                            <h4 class="option__name">{{type.name}}</h4>
+                                            <p class="option__text">{{type.text}}</p>
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="select__item" ref="like">
-                            <button type="button" v-on:click="optionOpenLike = !optionOpenLike" v-bind:class="showOptionLike" class="button--select">
-                                <span class="select__text">How much would you like?</span>
-                                <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
-                                <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
-                            </button>
-                            <div class="option-wrapper">
-                                <label v-bind:class="showOptionLike" @click="optionSelectLike(like)" v-for="(like, value) in likes" :key="value" class="option">
-                                    <input class="option__input" type="radio" name="like" id="1">
-                                    <div class="option__content">
-                                        <h4 class="option__name">{{like.name}}</h4>
-                                        <p class="option__text">{{like.text}}</p>
-                                    </div>
-                                </label>
+                            <div class="select__item" ref="like">
+                                <button type="button" v-on:click="optionOpenLike = !optionOpenLike" v-bind:class="showOptionLike" class="button--select">
+                                    <span class="select__text">How much would you like?</span>
+                                    <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
+                                    <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
+                                </button>
+                                <div class="option-wrapper">
+                                    <label v-bind:class="showOptionLike" @click="optionSelectLike(like)" v-for="(like, value) in likes" :key="value" class="option">
+                                        <input class="option__input" type="radio" name="like" id="1">
+                                        <div class="option__content">
+                                            <h4 class="option__name">{{like.name}}</h4>
+                                            <p class="option__text">{{like.text}}</p>
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <div v-if="selectedPreference == ''" class="select__item disabled" ref="grind">
-                            <button type="button" class="button--select">
-                                <span class="select__text">Want us to grind them?</span>
-                                <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
-                                <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
-                            </button>
-                        </div>
-                        <div v-else class="select__item" ref="grind">
-                            <button type="button" v-on:click="optionOpenGrind = !optionOpenGrind" v-bind:class="showOptionGrind" class="button--select">
-                                <span class="select__text">Want us to grind them?</span>
-                                <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
-                                <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
-                            </button>
-                            <div class="option-wrapper">
-                                <label v-bind:class="showOptionGrind" @click="optionSelectGrind(grind)" v-for="(grind, value) in grinds" :key="value" class="option">
-                                    <input class="option__input" type="radio" name="grind" id="1">
-                                    <div class="option__content">
-                                        <h4 class="option__name">{{grind.name}}</h4>
-                                        <p class="option__text">{{grind.text}}</p>
-                                    </div>
-                                </label>
+                            <div v-if="selectedPreference == ''" class="select__item disabled" ref="grind">
+                                <button type="button" class="button--select">
+                                    <span class="select__text">Want us to grind them?</span>
+                                    <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
+                                    <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
+                                </button>
                             </div>
-                        </div>
-                        <div v-if="selectedPreference == ''" class="select__item disabled" ref="deliver">
-                            <button type="button" class="button--select">
-                                <span class="select__text">Want us to grind them?</span>
-                                <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
-                                <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
-                            </button>
-                        </div>
-                        <div v-else class="select__item" ref="deliver">
-                            <button type="button" v-on:click="optionOpenDeliver = !optionOpenDeliver" v-bind:class="showOptionDeliver"  class="button--select">
-                                <span class="select__text">How often should we deliver?</span>
-                                <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
-                                <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
-                            </button>
-                            <div class="option-wrapper">
-                                <label v-bind:class="showOptionDeliver"  @click="optionSelectDeliver(deliver)" v-for="(deliver, value) in delivers" :key="value" class="option">
-                                    <input class="option__input" type="radio" name="deliver" id="1">
-                                    <div class="option__content">
-                                        <h4 class="option__name">{{deliver.name}}</h4>
-                                        <p class="option__text">{{deliver.text}}</p>
-                                    </div>
-                                    
-                                </label>
+                            <div v-else class="select__item" ref="grind">
+                                <button type="button" v-on:click="optionOpenGrind = !optionOpenGrind" v-bind:class="showOptionGrind" class="button--select">
+                                    <span class="select__text">Want us to grind them?</span>
+                                    <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
+                                    <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
+                                </button>
+                                <div class="option-wrapper">
+                                    <label v-bind:class="showOptionGrind" @click="optionSelectGrind(grind)" v-for="(grind, value) in grinds" :key="value" class="option">
+                                        <input class="option__input" type="radio" name="grind" id="1">
+                                        <div class="option__content">
+                                            <h4 class="option__name">{{grind.name}}</h4>
+                                            <p class="option__text">{{grind.text}}</p>
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
-                        </div>
+                            <div v-if="selectedPreference == ''" class="select__item disabled" ref="deliver">
+                                <button type="button" class="button--select">
+                                    <span class="select__text">Want us to grind them?</span>
+                                    <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
+                                    <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
+                                </button>
+                            </div>
+                            <div v-else class="select__item" ref="deliver">
+                                <button type="button" v-on:click="optionOpenDeliver = !optionOpenDeliver" v-bind:class="showOptionDeliver"  class="button--select">
+                                    <span class="select__text">How often should we deliver?</span>
+                                    <svg class="select__up-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949 12.51 2.828-2.829L9.682.586.586 9.68l2.828 2.829 6.267-6.267 6.268 6.267Z" fill="#0E8784"/></svg>                        
+                                    <svg class="select__down-icon" width="19" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m15.949.586 2.828 2.828-9.095 9.096L.586 3.414 3.414.586l6.267 6.267L15.95.586Z" fill="#0E8784"/></svg>
+                                </button>
+                                <div class="option-wrapper">
+                                    <label v-bind:class="showOptionDeliver"  @click="optionSelectDeliver(deliver)" v-for="(deliver, value) in delivers" :key="value" class="option">
+                                        <input class="option__input" type="radio" name="deliver" id="1">
+                                        <div class="option__content">
+                                            <h4 class="option__name">{{deliver.name}}</h4>
+                                            <p class="option__text">{{deliver.text}}</p>
+                                        </div>
+                                        
+                                    </label>
+                                </div>
+                            </div>
                             <div class="container--summary">
                                 <div class="summary">
                                     <h3 class="summary__title">Order Summary</h3>
@@ -195,17 +195,17 @@
                                 </div>
                                 <button id="show-modal" @click="showModal = true" type="button" class="button">Create my plan!</button>
                             </div>
-                         </div>
-                        <div class="modal" v-if="showModal">
-                            <div class="modal__card">
-                                <h3 class="modal__title">Order Summary</h3>
-                                <div class="modal__content">
-                                    <p class="summary__text">“I drink my coffee as <span v-if="optionOpenPreference" class="cyan__text">{{selectedPreference}}</span> <span class="cyan__text" v-else>_____</span> , with a <span v-if="optionOpenType" class="cyan__text">{{selectedType}}</span><span class="cyan__text" v-else>_____</span> type of bean. <span v-if="optionOpenLike" class="cyan__text">{{selectedLike}} </span><span class="cyan__text" v-else>_____</span> ground ala <span v-if="optionOpenGrind" class="cyan__text">{{selectedGrind}}</span><span class="cyan__text" v-else>_____</span>, sent to me <span v-if="optionOpenDeliver" class="cyan__text">{{selectedDeliver}}</span><span class="cyan__text" v-else>_____</span>.”</p>
-                                    <p class="modal__warning-text">Is this correct? You can proceed to checkout or go back to plan selection if something is off. Subscription discount codes can also be redeemed at the checkout. </p>
-                                    <span class="modal__footer">
-                                        <span class="modal__price"> - $14.00/ mo</span>
-                                        <button @click="showModal = false" class="button button--modal">Checkout <span class="modal__price-btn"> - $14.00/ mo</span></button>
-                                    </span>
+                            <div class="modal" v-if="showModal">
+                                <div class="modal__card">
+                                    <h3 class="modal__title">Order Summary</h3>
+                                    <div class="modal__content">
+                                        <p class="summary__text">“I drink my coffee as <span v-if="optionOpenPreference" class="cyan__text">{{selectedPreference}}</span> <span class="cyan__text" v-else>_____</span> , with a <span v-if="optionOpenType" class="cyan__text">{{selectedType}}</span><span class="cyan__text" v-else>_____</span> type of bean. <span v-if="optionOpenLike" class="cyan__text">{{selectedLike}} </span><span class="cyan__text" v-else>_____</span> ground ala <span v-if="optionOpenGrind" class="cyan__text">{{selectedGrind}}</span><span class="cyan__text" v-else>_____</span>, sent to me <span v-if="optionOpenDeliver" class="cyan__text">{{selectedDeliver}}</span><span class="cyan__text" v-else>_____</span>.”</p>
+                                        <p class="modal__warning-text">Is this correct? You can proceed to checkout or go back to plan selection if something is off. Subscription discount codes can also be redeemed at the checkout. </p>
+                                        <span class="modal__footer">
+                                            <span class="modal__price"> - $14.00/ mo</span>
+                                            <button @click="showModal = false" class="button button--modal">Checkout <span class="modal__price-btn"> - $14.00/ mo</span></button>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -213,143 +213,43 @@
                 </div>
             </div>
         </section>
-    <div>
-        <footer class="container">
-            <div class="footer">
-                <a href="index.html" class="site-logo site-logo--footer">
-                  <span class="site-logo__icon">
-                  <img  src="./img/site-icon.svg" height="16" width="16">
-                  </span>
-                  <h1 class="site-logo__text site-logo__text--footer">coffeeroasters</h1>
-                </a>
-                <ul class="footer__list">
-                  <li class="footer__item"><a href="index.html" class="footer__link">Home</a></li>
-                  <li class="footer__item"><a href="about-us.html" class="footer__link">About us</a></li>
-                  <li class="footer__item"><a href="#" class="footer__link">Create your plan</a></li>
-                </ul>
-                <ul class="footer-social">
-                  <li class="footer-social__item">
-                      <a href="footer-social__link">
-                          <svg class="footer-social__icon" width="25" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.775 0H1.425C.693 0 .1.593.1 1.325v21.351C.1 23.407.693 24 1.425 24H12.92v-9.294H9.792v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.66-4.788 1.324 0 2.462.099 2.794.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24.1.593 23.507 0 22.775 0Z" fill="currentColor"/></svg>
-                      </a>
-                  </li>
-                  <li class="footer-social__item">
-                      <a href="footer-social__link">
-                          <svg class="footer-social__icon" width="25" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24.1 2.557a9.83 9.83 0 0 1-2.828.775A4.932 4.932 0 0 0 23.437.608a9.864 9.864 0 0 1-3.127 1.195A4.916 4.916 0 0 0 16.716.248c-3.179 0-5.515 2.966-4.797 6.045A13.978 13.978 0 0 1 1.771 1.149a4.93 4.93 0 0 0 1.523 6.574 4.903 4.903 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.95 4.89a4.935 4.935 0 0 1-2.225.084 4.928 4.928 0 0 0 4.6 3.419A9.9 9.9 0 0 1 .1 17.54a13.94 13.94 0 0 0 7.548 2.212c9.142 0 14.307-7.721 13.995-14.646A10.025 10.025 0 0 0 24.1 2.557Z" fill="currentColor"/></svg>
-                      </a>
-                  </li>
-                  <li class="footer-social__item">
-                      <a href="footer-social__link">
-                          <svg class="footer-social__icon" width="25" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.1 0C8.841 0 8.433.014 7.153.072 2.795.272.373 2.69.173 7.052.114 8.333.1 8.741.1 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.69.072 4.948.072 3.26 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.98-6.98.058-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.77.014 15.36 0 12.1 0Zm0 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.92 4.919.057 1.265.068 1.645.068 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.77-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.15-3.227 1.664-4.771 4.92-4.919 1.265-.057 1.644-.069 4.848-.069ZM5.938 12a6.162 6.162 0 1 1 12.325 0 6.162 6.162 0 0 1-12.325 0Zm6.162 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.88-.001Z" fill="currentColor"/></svg>
-                      </a>
-                  </li>
-                </ul>
-            </div> 
+        <footer>
+            <div class="container">
+                <div class="footer">
+                    <a href="index.html" class="site-logo site-logo--footer">
+                    <span class="site-logo__icon">
+                    <img  src="./img/site-icon.svg" height="16" width="16">
+                    </span>
+                    <h1 class="site-logo__text site-logo__text--footer">coffeeroasters</h1>
+                    </a>
+                    <ul class="footer__list">
+                    <li class="footer__item"><a href="index.html" class="footer__link">Home</a></li>
+                    <li class="footer__item"><a href="about-us.html" class="footer__link">About us</a></li>
+                    <li class="footer__item"><a href="#" class="footer__link">Create your plan</a></li>
+                    </ul>
+                    <ul class="footer-social">
+                    <li class="footer-social__item">
+                        <a href="footer-social__link">
+                            <svg class="footer-social__icon" width="25" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.775 0H1.425C.693 0 .1.593.1 1.325v21.351C.1 23.407.693 24 1.425 24H12.92v-9.294H9.792v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.66-4.788 1.324 0 2.462.099 2.794.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24.1.593 23.507 0 22.775 0Z" fill="currentColor"/></svg>
+                        </a>
+                    </li>
+                    <li class="footer-social__item">
+                        <a href="footer-social__link">
+                            <svg class="footer-social__icon" width="25" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24.1 2.557a9.83 9.83 0 0 1-2.828.775A4.932 4.932 0 0 0 23.437.608a9.864 9.864 0 0 1-3.127 1.195A4.916 4.916 0 0 0 16.716.248c-3.179 0-5.515 2.966-4.797 6.045A13.978 13.978 0 0 1 1.771 1.149a4.93 4.93 0 0 0 1.523 6.574 4.903 4.903 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.95 4.89a4.935 4.935 0 0 1-2.225.084 4.928 4.928 0 0 0 4.6 3.419A9.9 9.9 0 0 1 .1 17.54a13.94 13.94 0 0 0 7.548 2.212c9.142 0 14.307-7.721 13.995-14.646A10.025 10.025 0 0 0 24.1 2.557Z" fill="currentColor"/></svg>
+                        </a>
+                    </li>
+                    <li class="footer-social__item">
+                        <a href="footer-social__link">
+                            <svg class="footer-social__icon" width="25" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.1 0C8.841 0 8.433.014 7.153.072 2.795.272.373 2.69.173 7.052.114 8.333.1 8.741.1 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.69.072 4.948.072 3.26 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.98-6.98.058-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.77.014 15.36 0 12.1 0Zm0 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.92 4.919.057 1.265.068 1.645.068 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.77-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.15-3.227 1.664-4.771 4.92-4.919 1.265-.057 1.644-.069 4.848-.069ZM5.938 12a6.162 6.162 0 1 1 12.325 0 6.162 6.162 0 0 1-12.325 0Zm6.162 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.88-.001Z" fill="currentColor"/></svg>
+                        </a>
+                    </li>
+                    </ul>
+                </div> 
+            </div>
         </footer>
     </div>
-  </div>
-</div>
-  </section>
     <script src="https://unpkg.com/vue@2"></script>
     
-    <script > 
-      new Vue({
-        el: "#app",
-        data: {
-          showNav: false,
-          showModal: false,
-          isDisabled: false,
-          selected: false,
-          optionOpenPreference: false,
-          optionOpenType: false,
-          optionOpenLike: false,
-          optionOpenGrind: false,
-          optionOpenDeliver: false,
-          selectedPreference: '',
-          selectedType: '',
-          selectedLike : '',
-          selectedGrind: '',
-          selectedDeliver: '',
-          
-            preferences: [
-                {name: 'Capsule', text: 'Compatible with Nespresso systems and similar brewers', value: 1},
-                {name: 'Filter', text: 'For pour over or drip methods like Aeropress, Chemex, and V60', value: 2},
-                {name: 'Espresso', text: 'Compatible with Nespresso systems and similar brewers', value: 3}
-            ],
-            types: [
-                {name: 'Single Origin', text: 'Compatible with Nespresso systems and similar brewers', value: 1},
-                {name: 'Decaf', text: 'For pour over or drip methods like Aeropress, Chemex, and V60', value: 2},
-                {name: 'Blended', text: 'Compatible with Nespresso systems and similar brewers', value: 3}
-            ],
-            likes: [
-                {name: '250g', text: 'Compatible with Nespresso systems and similar brewers', value: 1},
-                {name: '500g', text: 'For pour over or drip methods like Aeropress, Chemex, and V60', value: 2},
-                {name: '1000g', text: 'Compatible with Nespresso systems and similar brewers', value: 3}
-            ],
-            grinds: [
-                {name: 'Wholebean', text: 'Compatible with Nespresso systems and similar brewers', value: 1},
-                {name: 'Filter', text: 'For pour over or drip methods like Aeropress, Chemex, and V60', value: 2},
-                {name: 'Cafetiere', text: 'Compatible with Nespresso systems and similar brewers', value: 3}
-            ],
-            delivers: [
-                {name: 'Every week', text: 'Compatible with Nespresso systems and similar brewers', value: 1},
-                {name: 'Every 2 weeks', text: 'For pour over or drip methods like Aeropress, Chemex, and V60', value: 2},
-                {name: 'Every month', text: 'Compatible with Nespresso systems and similar brewers', value: 3}
-            ],
-            
-            },
-            
-        methods: {
-            goto(refName) {
-            var element = this.$refs[refName];
-            var top = element.offsetTop;
-
-            window.scrollTo(0, top);
-            },
-            optionSelectPreference(preference) {
-                this.selectedPreference = preference.name
-            },
-            optionSelectType(type) {
-                this.selectedType = type.name
-            },
-            optionSelectLike(like) {
-                this.selectedLike = like.name
-            },
-            optionSelectGrind(grind) {
-                this.selectedGrind = grind.name
-            },
-            optionSelectDeliver(deliver) {
-                this.selectedDeliver = deliver.name
-            }
-        },
-        computed: {
-            showOptionPreference: function() {
-                return {
-                    optionOpenPreference : this.optionOpenPreference,
-                }
-            },
-            showOptionType: function() {
-                return {
-                    optionOpenType : this.optionOpenType,
-                }
-            },
-            showOptionLike: function() {
-                return {
-                    optionOpenLike : this.optionOpenLike,
-                }
-            },
-            showOptionGrind: function() {
-                return {
-                    optionOpenGrind : this.optionOpenGrind,
-                }
-            },
-            showOptionDeliver: function() {
-                return {
-                    optionOpenDeliver : this.optionOpenDeliver,
-                }
-            },
-        }
-      });
-  </script>
+    <script src="/js/plan.js" ></script>
 </body>
 </html>
