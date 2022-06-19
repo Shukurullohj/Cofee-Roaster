@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cofee Roaster</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/site-icon.svg"/>
+  <title>About Us</title>
   <link rel="stylesheet" href="css/normalize.min.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
-    <header>
+<div id="app">
+    <header v-bind:class="{showNav: showNav}">
         <div class="container">
         <nav class="nav">
             <a href="index.html" class="site-logo">
@@ -19,14 +20,14 @@
             </span>
             <h1 class="site-logo__text">coffeeroasters</h1>
             </a>
-            <span class="nav__sidebar"><svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <span @click="showNav = !showNav" class="nav__sidebar"><svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.5C0 0.671573 0.671573 0 1.5 0H14.5C15.3284 0 16 0.671573 16 1.5C16 2.32843 15.3284 3 14.5 3H1.5C0.671573 3 0 2.32843 0 1.5ZM0 7.5C0 6.67157 0.671573 6 1.5 6H14.5C15.3284 6 16 6.67157 16 7.5C16 8.32843 15.3284 9 14.5 9H1.5C0.671573 9 0 8.32843 0 7.5ZM1.5 12C0.671573 12 0 12.6716 0 13.5C0 14.3284 0.671573 15 1.5 15H14.5C15.3284 15 16 14.3284 16 13.5C16 12.6716 15.3284 12 14.5 12H1.5Z" fill="#333D4B"/>
             </svg>
             </span>
             <ul class="nav__list">
                 <li class="nav__item"><a class="nav__link" href="index.html">Home</a></li>
                 <li class="nav__item"><a class="nav__link" href="#">About</a></li>
-                <li class="nav__item"><a class="nav__link" href="#">Create Your Plan</a></li>
+                <li class="nav__item"><a class="nav__link" href="plan.html">Create Your Plan</a></li>
             </ul>
         </nav>
         </div>
@@ -98,7 +99,7 @@
                 <ul class="footer__list">
                   <li class="footer__item"><a href="index.html" class="footer__link">Home</a></li>
                   <li class="footer__item"><a href="#" class="footer__link">About us</a></li>
-                  <li class="footer__item"><a href="" class="footer__link">Create your plan</a></li>
+                  <li class="footer__item"><a href="plan.html" class="footer__link">Create your plan</a></li>
                 </ul>
                 <ul class="footer-social">
                   <li class="footer-social__item">
@@ -121,14 +122,18 @@
         </footer>
     </div>
   </div>
-  <style>
-    
-
-
-
-  </style>
-  
   </section>
+</div>
+<script src="https://unpkg.com/vue@2"></script>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+          showNav: false,
+        }
+    });
+</script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -132,12 +132,10 @@ h1, h2, h3, h4 {
 
 /* OPTION */
 
-.option {
+.option__content {
   background-color: var(--color-light);
-  padding: 32px 28px 84px;
   border-radius: 8px;
-} 
-
+}
 .option__name {
   font-size: 24px;
   margin: 0;
@@ -148,7 +146,7 @@ h1, h2, h3, h4 {
   font-size: 16px;
 }
 
-.option:hover {
+.option__content:hover {
   background-color: var(--color-pale-orange);
 }
 
@@ -158,19 +156,41 @@ h1, h2, h3, h4 {
 }
 
 /* NAV */
-
+header {
+  background-color: var(--color-light-bg);
+  width: 100vw;
+}
 nav{
   display: flex;
   justify-content: space-between;
   padding: 30px 0;
   flex-flow: wrap;
+  position: relative;
 }
 
 .nav__list {
+  background-color: var(--color-light-bg);
   flex-basis: 100%;
+  position: relative;
   display: none;
   list-style: none;
   padding-top: 40px;
+}
+.showNav .nav__list {
+  position: absolute;
+  display: block;
+  width: 101%;
+  top: 70px;
+  padding-bottom: 40px;
+  transition: all 1s ease;
+}
+.showNav .nav__list::after {
+  content: "";
+  position:absolute;
+  z-index:2;
+  right:0; top:220px; left:0;
+  height:100vh; /* adjust it to your needs */
+  background: linear-gradient(to top,  rgba(255,255,255,0) 0%,var(--color-light-bg)100%);
 }
 
 .nav__item {
@@ -371,6 +391,7 @@ nav{
 
 .how-works--dark {
   background-color: var(--color-black);
+  border-radius: 10px;
 }
 
 .how-works__title {
@@ -389,6 +410,7 @@ nav{
 
 .how-works--dark .how-works__list {
   color: var(--color-light);
+  padding: 100px 40px;
 }
 
 .how-works__item {
@@ -550,7 +572,63 @@ nav{
   margin-bottom: 20px;
 }
 
-/* OPTION  */
+
+/* SELECT*/
+
+.select {
+  margin-bottom: 140px;
+}
+.select-tab {
+  display: none;
+ 
+}
+
+.select-tab__list { 
+  list-style: none;
+  position: sticky;
+  -webkit-position: sticky;
+  top: 0;
+}
+
+.select-tab__button {
+  border: none;
+  background-color: transparent;
+  color: var(--color-black);
+  opacity: 0.4;
+  font-family: "Fraunces", "Arial", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  transition: ease .2s;
+}
+
+.select-tab__button:hover {
+  margin-left: 5px;
+  opacity: 0.6;
+}
+
+.select-tab__button--active {
+  opacity: 1;
+}
+
+.disabled {
+  opacity: 0.2;
+}
+
+.select-tab__number {
+  margin-right: 28px;
+}
+
+.select-tab__button:hover .select-tab__number {
+  opacity: 0.4;
+}
+
+.select-tab__border-bottom {
+  display: inline-block;
+  width: 255px;
+  background-color: var(--color-light-gray);
+  padding: 0.5px;
+  opacity: 0.2;
+}
 .option {
   display: none;
   margin: 0;
@@ -653,15 +731,6 @@ nav{
   color: var(--color-light);
 }
 
-.checkbox__input {
-  position: absolute;
-  appearance: none;
-  top: 10px;
-  right: 10px;
-  z-index: 2;
-  opacity: 1;
-}
-
 .option__input:checked ~ .option__content {
   background-color: var(--color-dark-cyan);
 }
@@ -680,54 +749,8 @@ nav{
   background: transparent;
 }
 
-.select-tab {
-  display: none;
-}
 
-.select-tab__list { 
-  list-style: none;
-}
-
-.select-tab__button {
-  border: none;
-  background-color: transparent;
-  color: var(--color-black);
-  opacity: 0.4;
-  font-family: "Fraunces", "Arial", sans-serif;
-  font-weight: 900;
-  font-size: 24px;
-  transition: ease .2s;
-}
-
-.select-tab__button:hover {
-  margin-left: 5px;
-  opacity: 0.6;
-}
-
-.select-tab__button--active {
-  opacity: 1;
-}
-
-.disabled {
-  opacity: 0.2;
-}
-
-.select-tab__number {
-  margin-right: 28px;
-}
-
-.select-tab__button:hover .select-tab__number {
-  opacity: 0.4;
-}
-
-.select-tab__border-bottom {
-  display: inline-block;
-  width: 255px;
-  background-color: var(--color-light-gray);
-  padding: 0.5px;
-  opacity: 0.2;
-}
-
+/* SUMMARY */
 .container--summary {
   text-align: center;
 }
@@ -762,6 +785,66 @@ nav{
   color: var(--color-dark-cyan);
 }
 
+/* MODAL */
+
+.modal {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.modal__card {
+  width: 327px;
+  height: 600px;
+  text-align: left;
+}
+
+.modal__title {
+  background-color: var(--color-black);
+  color: var(--color-light);
+  margin: 0;
+  padding: 28px 24px;
+  font-size: 28px;
+  border-radius: 10px 10px 0 0;
+}
+
+.modal__content {
+  background-color: var(--color-light);
+  padding: 40px 24px 24px;
+  border-radius: 0 0 10px 10px;
+}
+
+.modal__warning-text {
+  margin-bottom: 24px;
+  opacity: .8;
+  color: var(--color-light-gray);
+  line-height: 25px;
+}
+
+.modal__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button--modal {
+  align-self: center;
+  font-size: 18px;
+  padding: 15px 31px;
+}
+
+.modal__price {
+  display: none;
+}
+
 @media only screen and (min-width:768px) {
   .container {
     padding-right: 40px;
@@ -777,6 +860,18 @@ nav{
   .nav__item:not(:last-child) {
     margin-right: 33px;
     margin-bottom: 0;
+  }
+
+  .showNav .nav__list::after {
+    content: none;
+  }
+
+  .showNav .nav__list {
+    position: relative;
+    top: 0;
+    display: flex;
+    padding: 0;
+    width: auto;
   }
 
   .nav__link {
@@ -994,6 +1089,29 @@ nav{
   .button--select {
     font-size: 32px;
   }
+
+  .container--summary {
+    text-align: right;
+  }
+
+  .modal__card {
+    width: 540px;
+  }
+
+  .modal__footer {
+    justify-content: space-between;
+  }
+
+  .modal__price {
+      display: flex;
+      font-family: "Fraunces", "Arial", sans-serif;
+      font-size: 32px;
+  }
+
+  .modal__price-btn {
+      display: none;
+  }
+
 }
 
 @media screen and (min-width:1200px) {
@@ -1027,6 +1145,7 @@ nav{
 
   .banner--plan {
     background: url('../assets/plan/desktop/image-hero-blackcup.jpg');
+    height: 450px;
   }
 
   .our-collection-text {
@@ -1145,14 +1264,10 @@ nav{
   }
 
   .select-tab__list {
-    position: fixed;
+    padding: 0;
   }
 
   .select__item {
     margin-left: auto;
   }   
-
-  .container--summary {
-    text-align: right;
-}
 }
